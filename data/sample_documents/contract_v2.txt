@@ -1,0 +1,54 @@
+CONSULTING AGREEMENT
+
+This Consulting Agreement (the "Agreement") is made and entered into as of January 1, 2023 (the "Effective Date"), by and between ABC Corporation, a Delaware corporation with its principal place of business at 123 Main Street, Anytown, USA ("Company"), and John Doe, an individual residing at 456 Oak Avenue, Somewhere, USA ("Consultant").
+
+1. SERVICES
+   1.1 Services. Consultant shall provide consulting services to the Company as described in Exhibit A attached hereto (the "Services").
+   1.2 Performance. Consultant shall perform the Services in a professional manner and in accordance with industry standards and Company's reasonable requirements.
+   1.3 Schedule. Consultant shall perform the Services according to the schedule set forth in Exhibit B.
+
+2. COMPENSATION
+   2.1 Fees. Company shall pay Consultant a fee of $175 per hour for Services performed.
+   2.2 Expenses. Company shall reimburse Consultant for reasonable expenses incurred in connection with the Services, provided that such expenses are approved in advance by Company and do not exceed $1,000 per month.
+   2.3 Payment Terms. Consultant shall invoice Company on a monthly basis for Services performed and expenses incurred. Company shall pay each invoice within 45 days of receipt.
+
+3. TERM AND TERMINATION
+   3.1 Term. This Agreement shall commence on the Effective Date and shall continue for a period of two (2) years, unless earlier terminated as provided herein.
+   3.2 Termination for Convenience. Either party may terminate this Agreement for any reason upon sixty (60) days' written notice to the other party.
+   3.3 Termination for Breach. Either party may terminate this Agreement immediately upon written notice if the other party breaches any material term of this Agreement and fails to cure such breach within fifteen (15) days after receiving written notice thereof.
+
+4. CONFIDENTIALITY
+   4.1 Definition. "Confidential Information" means any non-public information disclosed by one party to the other, whether orally or in writing, that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information and the circumstances of disclosure.
+   4.2 Obligations. Consultant shall maintain the confidentiality of all Confidential Information and shall not disclose such Confidential Information to any third party without Company's prior written consent.
+   4.3 Survival. The obligations of confidentiality under this Section shall survive the termination or expiration of this Agreement for a period of five (5) years.
+
+5. INTELLECTUAL PROPERTY
+   5.1 Ownership. Company shall own all right, title, and interest in and to any work product, deliverables, or other materials created by Consultant in connection with the Services.
+   5.2 Assignment. Consultant hereby assigns to Company all right, title, and interest in and to any work product, deliverables, or other materials created by Consultant in connection with the Services.
+   5.3 Pre-existing Materials. Consultant retains all rights to any pre-existing materials used in the performance of the Services.
+
+6. REPRESENTATIONS AND WARRANTIES
+   6.1 Consultant represents and warrants that: (a) Consultant has the right and authority to enter into this Agreement; (b) Consultant will perform the Services in a professional and workmanlike manner; and (c) the Services will not infringe or misappropriate any third party's intellectual property rights.
+   6.2 Company represents and warrants that it has the right and authority to enter into this Agreement.
+
+7. LIMITATION OF LIABILITY
+   7.1 IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR ANY INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF OR RELATED TO THIS AGREEMENT.
+   7.2 EACH PARTY'S TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED TWO TIMES THE AMOUNTS PAID BY COMPANY TO CONSULTANT UNDER THIS AGREEMENT.
+
+8. GENERAL PROVISIONS
+   8.1 Independent Contractor. Consultant is an independent contractor and not an employee of Company.
+   8.2 Governing Law. This Agreement shall be governed by the laws of the State of Delaware. Any dispute arising out of or related to this Agreement shall be resolved through binding arbitration in Wilmington, Delaware.
+   8.3 Entire Agreement. This Agreement constitutes the entire agreement between the parties with respect to the subject matter hereof and supersedes all prior or contemporaneous communications, representations, or agreements, whether oral or written.
+   8.4 Amendment. This Agreement may be amended only by a written instrument signed by both parties.
+   8.5 Force Majeure. Neither party shall be liable for any failure or delay in performance due to causes beyond its reasonable control.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
+
+ABC CORPORATION
+By: ____________________
+Name: Jane Smith
+Title: CEO
+
+CONSULTANT
+By: ____________________
+Name: John Doe
