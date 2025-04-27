@@ -9,6 +9,10 @@ env/
 ENV/
 .env
 
+# Generated reports
+*_report.md
+workflow_test_report.md
+
 # Distribution / packaging
 dist/
 build/

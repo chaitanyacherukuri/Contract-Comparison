@@ -10,9 +10,7 @@ import os
 import argparse
 from dotenv import load_dotenv
 from src.document_loaders.loader import DocumentLoader
-from src.comparison.document_comparison import DocumentComparisonGraph
-from src.risk_analysis.risk_analyzer import RiskAnalyzer
-from src.summary.summary_generator import SummaryGenerator
+from src.workflow.contract_comparison_workflow import ContractComparisonWorkflow
 
 # Load environment variables
 load_dotenv()
@@ -35,44 +33,33 @@ def main():
     print(f"Loading documents: {args.doc1} and {args.doc2}")
 
     # Load documents
-    loader = DocumentLoader()
-    doc1_content = loader.load_document(args.doc1)
-    doc2_content = loader.load_document(args.doc2)
-
-    print("Documents loaded successfully.")
-
-    # Create comparison graph
-    comparison_graph = DocumentComparisonGraph()
     try:
-        comparison_result = comparison_graph.run(doc1_content, doc2_content)
-        print("Document comparison completed.")
+        loader = DocumentLoader()
+        doc1_content = loader.load_document(args.doc1)
+        doc2_content = loader.load_document(args.doc2)
+        print("Documents loaded successfully.")
     except Exception as e:
-        print(f"Error during document comparison: {e}")
-        print("Creating a simplified comparison result...")
-        # Create a simplified comparison result
-        comparison_result = {
-            "structural_comparison": "Error during structural comparison",
-            "semantic_comparison": "Error during semantic comparison",
-            "final_comparison": "Error during final comparison"
-        }
+        print(f"Error loading documents: {e}")
+        return
 
-    # Analyze risks
-    risk_analyzer = RiskAnalyzer()
-    risk_analysis = risk_analyzer.analyze(doc1_content, doc2_content, comparison_result)
+    # Run the workflow
+    try:
+        workflow = ContractComparisonWorkflow()
+        print("Starting contract comparison workflow...")
+        result = workflow.run(doc1_content, doc2_content)
+        print("Workflow completed successfully.")
 
-    print("Risk analysis completed.")
+        # Extract the summary from the result
+        summary = result["summary"]
 
-    # Generate summary
-    summary_generator = SummaryGenerator()
-    summary = summary_generator.generate(doc1_content, doc2_content, comparison_result, risk_analysis)
+        # Save the report
+        with open(args.output, 'w') as f:
+            f.write(summary)
 
-    print("Summary generation completed.")
-
-    # Save the report
-    with open(args.output, 'w') as f:
-        f.write(summary)
-
-    print(f"Comparison report saved to {args.output}")
+        print(f"Comparison report saved to {args.output}")
+    except Exception as e:
+        print(f"Error during workflow execution: {e}")
+        return
 
 if __name__ == "__main__":
     main()

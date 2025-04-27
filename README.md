@@ -13,12 +13,16 @@ This application compares two legal documents and provides a detailed summary of
 
 The application is built using LangGraph, a framework for building agentic applications with a focus on complex reasoning processes. It uses the Groq API with the "meta-llama/llama-4-scout-17b-16e-instruct" model for all language processing tasks.
 
-The architecture consists of:
+The architecture consists of a unified workflow with the following nodes:
 
-1. **Document Ingestion Layer**: Handles loading and preprocessing documents
-2. **Document Comparison Graph**: Performs structural and semantic comparison
-3. **Risk Analysis Component**: Identifies and assesses risks in the changes
-4. **Summary Generation**: Creates a comprehensive report
+1. **Document Loader**: Handles loading and preprocessing documents from various formats
+2. **Structural Analysis**: Analyzes the structural differences between documents
+3. **Semantic Analysis**: Analyzes the semantic differences between documents
+4. **Final Analysis**: Combines structural and semantic analyses into a comprehensive comparison
+5. **Risk Analyzer**: Identifies and assesses risks in the changes
+6. **Summary Generation**: Creates a comprehensive report
+
+The workflow uses a state dictionary pattern, where each node updates the state with its results, and subsequent nodes have access to the updates from previous nodes through the state dictionary.
 
 ## Installation
 
@@ -59,19 +63,19 @@ python app.py --doc1 data/sample_documents/contract_v1.txt --doc2 data/sample_do
 
 ## Testing
 
-You can test individual components of the application using the provided test scripts:
+You can test the application using the provided test scripts:
 
 1. Test the document loader:
    ```
    python test_app.py
    ```
 
-2. Test all components individually:
+2. Test the complete workflow:
    ```
-   python test_components.py
+   python test_workflow.py
    ```
 
-These tests will help verify that each component is working correctly before running the full application.
+These tests will help verify that the workflow is working correctly before running the full application.
 
 ## Sample Documents
 
