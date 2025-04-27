@@ -22,7 +22,7 @@ from src.workflow.contract_comparison_workflow import ContractComparisonWorkflow
 
 # Set page configuration
 st.set_page_config(
-    page_title="Contract Comparison Tool",
+    page_title="Contract Comparison",
     page_icon="📄",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -241,7 +241,7 @@ def generate_pdf_report(summary):
 
 def main():
     """Main function for the Streamlit app."""
-    st.title("📄 Contract Comparison Tool")
+    st.title("📄 AI-Powered Contract Comparison")
     st.markdown("""
     Upload two versions of a contract to compare them, identify changes and potential risks.
     The tool will analyze structural and semantic differences and provide a detailed report.
