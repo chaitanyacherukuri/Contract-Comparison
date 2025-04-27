@@ -28,6 +28,7 @@ def main():
     if not os.getenv("GROQ_API_KEY"):
         print("Error: GROQ_API_KEY environment variable is not set.")
         print("Please set it in the .env file or as an environment variable.")
+        print("For Streamlit Cloud deployment, use the secrets.toml approach instead.")
         return
 
     print(f"Loading documents: {args.doc1} and {args.doc2}")

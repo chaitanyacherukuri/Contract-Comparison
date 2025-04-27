@@ -33,6 +33,7 @@ class ContractComparisonWorkflow:
 
     def __init__(self):
         """Initialize the contract comparison workflow."""
+        # The API key is set in the environment by the check_api_key function
         self.llm = ChatGroq(model="meta-llama/llama-4-scout-17b-16e-instruct", temperature=0)
         self.graph = self._build_graph()
 

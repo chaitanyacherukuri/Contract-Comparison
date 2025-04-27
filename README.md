@@ -1,130 +1,166 @@
-# Legal Document Comparison Tool
+# 📄 Legal Document Comparison Tool
 
-This application compares two legal documents and provides a detailed summary of all the changes present in both documents, as well as flagging potential risk areas.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![LangGraph](https://img.shields.io/badge/LangGraph-0.0.25%2B-orange)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.44.0%2B-red)
 
-## Features
+A powerful AI-driven tool that compares legal documents and provides a detailed analysis of changes, highlighting potential risks and generating comprehensive reports.
 
-- Document loading from various formats (PDF, DOCX, TXT)
-- Structural and semantic comparison of legal documents
-- Risk analysis of identified changes
-- Comprehensive summary report generation
-- User-friendly web interface with interactive visualizations
+## ✨ Features
 
-## Architecture
+- 📋 **Multi-format Support**: Load documents from PDF, DOCX, and TXT formats
+- 🔍 **Dual Analysis**: Perform both structural and semantic comparison of legal documents
+- ⚠️ **Risk Assessment**: Identify and categorize potential risks in document changes
+- 📊 **Comprehensive Reports**: Generate detailed summary reports with executive summaries
+- 🖥️ **Interactive UI**: User-friendly web interface with drag-and-drop functionality
+- 📱 **Responsive Design**: Clean, modern interface that works on various devices
+- 📥 **PDF Export**: Download comparison reports as PDF files
 
-The application is built using LangGraph, a framework for building agentic applications with a focus on complex reasoning processes. It uses the Groq API with the "meta-llama/llama-4-scout-17b-16e-instruct" model for all language processing tasks.
+## 🏗️ Architecture
 
-The architecture consists of a unified workflow with the following nodes:
+The application is built using **LangGraph**, a framework for building agentic applications with complex reasoning processes. It leverages the **Groq API** with the `meta-llama/llama-4-scout-17b-16e-instruct` model for all language processing tasks.
 
-1. **Document Loader**: Handles loading and preprocessing documents from various formats
-2. **Structural Analysis**: Analyzes the structural differences between documents
-3. **Semantic Analysis**: Analyzes the semantic differences between documents
-4. **Final Analysis**: Combines structural and semantic analyses into a comprehensive comparison
-5. **Risk Analyzer**: Identifies and assesses risks in the changes
-6. **Summary Generation**: Creates a comprehensive report
+### Workflow Components
 
-The workflow uses a state dictionary pattern, where each node updates the state with its results, and subsequent nodes have access to the updates from previous nodes through the state dictionary.
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Document       │     │  Structural     │     │  Semantic       │
+│  Loader         │────▶│  Analysis       │────▶│  Analysis       │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                                                        │
+                                                        ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Summary        │     │  Risk           │     │  Final          │
+│  Generation     │◀────│  Analyzer       │◀────│  Analysis       │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
 
-## Installation
+The workflow uses a **state dictionary pattern**, where each node updates the state with its results, and subsequent nodes have access to the updates from previous nodes through the state dictionary.
 
-1. Clone the repository
-2. Create a virtual environment:
+## 🚀 Installation
+
+### Prerequisites
+
+- Python 3.8 or higher
+- Groq API key
+
+### Setup
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/chaitanyacherukuri/Contract-Comparison.git
+   cd Contract-Comparison
    ```
+
+2. **Create a virtual environment**
+   ```bash
    python -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
-3. Install dependencies:
-   ```
+
+3. **Install dependencies**
+   ```bash
    pip install -r requirements.txt
    ```
-4. Set up your Groq API key in a `.env` file:
+
+4. **Set up your Groq API key**
+
+   **For local development:**
+   Create a `.streamlit/secrets.toml` file with:
+   ```toml
+   [api_keys]
+   groq = "your_groq_api_key_here"
    ```
-   GROQ_API_KEY=your_groq_api_key_here
-   ```
 
-## Usage
+   **For Streamlit Cloud deployment:**
+   Add your Groq API key to the Streamlit Cloud secrets management in the dashboard.
 
-Before running the application, make sure to set your Groq API key in the `.env` file:
-
-```
-GROQ_API_KEY=your_groq_api_key_here
-```
+## 🖥️ Usage
 
 ### Command Line Interface
 
 Run the application with:
 
-```
+```bash
 python app.py --doc1 path/to/first/document --doc2 path/to/second/document --output report.md
 ```
 
-Example:
-
-```
+**Example:**
+```bash
 python app.py --doc1 data/sample_documents/contract_v1.txt --doc2 data/sample_documents/contract_v2.txt --output comparison_report.md
 ```
 
 ### Web Interface
 
-The application also provides a user-friendly web interface using Streamlit. To launch the web interface:
+Launch the user-friendly web interface:
 
-```
+```bash
 streamlit run streamlit_app.py
 ```
 
-The web interface offers the following features:
-- Drag-and-drop document uploads
-- Support for PDF, DOCX, and TXT files
-- Clean, minimalist interface with tabbed navigation
-- Interactive results display with expandable sections
-- Color-coded risk analysis
-- One-click report download
+The web interface provides:
+- 📤 Drag-and-drop document uploads
+- 📑 Support for PDF, DOCX, and TXT files
+- 📊 Interactive results with expandable sections
+- 🎨 Color-coded risk analysis
+- 💾 One-click PDF report download
 
-#### Screenshots
+### Sample Documents
 
-![Streamlit UI - Document Upload](docs/images/streamlit_upload.png)
-*Document upload interface with drag-and-drop functionality*
+The repository includes sample documents in multiple formats:
+- 📄 **TXT**: `contract_v1.txt` and `contract_v2.txt`
+- 📑 **PDF**: `contract_v1.pdf` and `contract_v2.pdf`
+- 📝 **DOCX**: `contract_v1.docx` and `contract_v2.docx`
 
-![Streamlit UI - Comparison Results](docs/images/streamlit_results.png)
-*Interactive comparison results with expandable sections*
+You can use these to test the application without uploading your own documents.
 
-![Streamlit UI - Download Report](docs/images/streamlit_download.png)
-*Download comparison report functionality*
+## 🌐 Deployment
 
-> Note: You'll need to take screenshots of the application and save them in the `docs/images` directory.
+### Streamlit Cloud Deployment
 
-## Testing
-
-You can test the application using the provided test scripts:
-
-1. Test the document loader:
+1. Fork this repository to your GitHub account
+2. Connect your GitHub repository to Streamlit Cloud
+3. In the Streamlit Cloud dashboard, navigate to your app's settings
+4. Under "Secrets", add your Groq API key:
+   ```toml
+   [api_keys]
+   groq = "your_groq_api_key_here"
    ```
-   python test_app.py
-   ```
+5. Deploy your application
 
-2. Test the complete workflow:
-   ```
-   python test_workflow.py
-   ```
+## 🧪 Testing
 
-These tests will help verify that the workflow is working correctly before running the full application.
+Verify the application works correctly with the provided test scripts:
 
-## Sample Documents
+```bash
+# Test the document loader
+python test_app.py
 
-The repository includes sample documents in the `data/sample_documents` directory:
+# Test the complete workflow
+python test_workflow.py
+```
 
-- `contract_v1.txt`: Original contract
-- `contract_v2.txt`: Modified contract with various changes
+## 📋 Output Format
 
-## Output
+The application generates a comprehensive report that includes:
 
-The application generates a markdown report that includes:
+1. **Executive Summary**: Overview of the most important changes
+2. **Detailed Changes Analysis**: In-depth analysis of structural and semantic changes
+3. **Risk Assessment**: Evaluation of potential risks with severity ratings
+4. **Recommendations**: Suggested actions based on the identified changes
 
-1. Executive Summary
-2. Detailed Changes Analysis
-3. Risk Assessment
-4. Recommendations
+## 🤝 Contributing
 
-## License
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-MIT
+## 📜 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🙏 Acknowledgements
+
+- [LangGraph](https://github.com/langchain-ai/langgraph) for the workflow framework
+- [Groq](https://groq.com/) for the high-performance LLM API
+- [Streamlit](https://streamlit.io/) for the web interface framework
+- [LangChain](https://github.com/langchain-ai/langchain) for LLM integration tools

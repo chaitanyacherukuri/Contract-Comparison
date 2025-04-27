@@ -4,7 +4,6 @@ Test script for the Contract Comparison Workflow
 """
 
 import os
-import json
 from dotenv import load_dotenv
 from src.document_loaders.loader import DocumentLoader
 from src.workflow.contract_comparison_workflow import ContractComparisonWorkflow
@@ -18,6 +17,7 @@ def test_workflow():
     if not os.getenv("GROQ_API_KEY"):
         print("Error: GROQ_API_KEY environment variable is not set.")
         print("Please set it in the .env file or as an environment variable.")
+        print("For Streamlit Cloud deployment, use the secrets.toml approach instead.")
         return
 
     print("Starting workflow test...")
@@ -46,38 +46,38 @@ def test_workflow():
         result = workflow.run(doc1_sample, doc2_sample)
 
         print("Workflow completed successfully.")
-        
+
         # Print the keys in the result
         print("\nWorkflow result keys:", result.keys())
-        
+
         # Print samples of each step's output
         print("\nStructural comparison sample:")
         structural_str = str(result["structural_comparison"])
         print(structural_str[:200] + "..." if len(structural_str) > 200 else structural_str)
-        
+
         print("\nSemantic comparison sample:")
         semantic_str = str(result["semantic_comparison"])
         print(semantic_str[:200] + "..." if len(semantic_str) > 200 else semantic_str)
-        
+
         print("\nFinal comparison sample:")
         final_str = str(result["final_comparison"])
         print(final_str[:200] + "..." if len(final_str) > 200 else final_str)
-        
+
         print("\nRisk analysis sample:")
         risk_str = str(result["risk_analysis"])
         print(risk_str[:200] + "..." if len(risk_str) > 200 else risk_str)
-        
+
         print("\nSummary sample:")
         summary = result["summary"]
         print(summary[:500] + "..." if len(summary) > 500 else summary)
-        
+
         print("\nWorkflow test passed!")
-        
+
         # Save the summary to a file
         with open("workflow_test_report.md", "w") as f:
             f.write(summary)
         print("\nTest report saved to workflow_test_report.md")
-        
+
     except Exception as e:
         print(f"Error in workflow test: {e}")
         import traceback

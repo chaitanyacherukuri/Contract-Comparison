@@ -4,7 +4,6 @@ Test script for the Contract Comparison Application
 """
 
 import os
-import json
 from dotenv import load_dotenv
 from src.document_loaders.loader import DocumentLoader
 
@@ -17,6 +16,7 @@ def main():
     if not os.getenv("GROQ_API_KEY"):
         print("Error: GROQ_API_KEY environment variable is not set.")
         print("Please set it in the .env file or as an environment variable.")
+        print("For Streamlit Cloud deployment, use the secrets.toml approach instead.")
         return
 
     print("Testing document loader...")
