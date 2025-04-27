@@ -8,6 +8,7 @@ This application compares two legal documents and provides a detailed summary of
 - Structural and semantic comparison of legal documents
 - Risk analysis of identified changes
 - Comprehensive summary report generation
+- User-friendly web interface with interactive visualizations
 
 ## Architecture
 
@@ -49,6 +50,8 @@ Before running the application, make sure to set your Groq API key in the `.env`
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
+### Command Line Interface
+
 Run the application with:
 
 ```
@@ -60,6 +63,35 @@ Example:
 ```
 python app.py --doc1 data/sample_documents/contract_v1.txt --doc2 data/sample_documents/contract_v2.txt --output comparison_report.md
 ```
+
+### Web Interface
+
+The application also provides a user-friendly web interface using Streamlit. To launch the web interface:
+
+```
+streamlit run streamlit_app.py
+```
+
+The web interface offers the following features:
+- Drag-and-drop document uploads
+- Support for PDF, DOCX, and TXT files
+- Clean, minimalist interface with tabbed navigation
+- Interactive results display with expandable sections
+- Color-coded risk analysis
+- One-click report download
+
+#### Screenshots
+
+![Streamlit UI - Document Upload](docs/images/streamlit_upload.png)
+*Document upload interface with drag-and-drop functionality*
+
+![Streamlit UI - Comparison Results](docs/images/streamlit_results.png)
+*Interactive comparison results with expandable sections*
+
+![Streamlit UI - Download Report](docs/images/streamlit_download.png)
+*Download comparison report functionality*
+
+> Note: You'll need to take screenshots of the application and save them in the `docs/images` directory.
 
 ## Testing
 
