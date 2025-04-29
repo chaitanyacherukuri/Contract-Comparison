@@ -29,6 +29,10 @@ nosetests.xml
 coverage.xml
 *.cover
 
+# Test files
+test_app.py
+test_workflow.py
+
 # Jupyter Notebook
 .ipynb_checkpoints
 
