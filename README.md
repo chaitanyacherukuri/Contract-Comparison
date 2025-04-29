@@ -129,18 +129,6 @@ You can use these to test the application without uploading your own documents.
    ```
 5. Deploy your application
 
-## 🧪 Testing
-
-Verify the application works correctly with the provided test scripts:
-
-```bash
-# Test the document loader
-python test_app.py
-
-# Test the complete workflow
-python test_workflow.py
-```
-
 ## 📋 Output Format
 
 The application generates a comprehensive report that includes:
